@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: whitesmoke;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.accordion-container {
+    max-width: 80%;
+    margin: 20px auto;
+}
+
+.accordion-tab label {
+    background-color: #191e24;
+    color: white;
+    display: block;
+    padding: 15px 25px;
+    cursor: pointer;
+    border-radius: 8px;
+    margin: 2px 0;
+    position: relative;
+}
+
+.accordion-tab label::after {
+    content: '+';
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    font-size: large;
+    font-weight: 500;
+    color: #f1c40f;
+}
+
+.accordion-tab input:checked~label::after {
+    content: '-';
+    font-weight: 600;
+    font-size: xx-large;
+    top: 0;
+}
+
+.accordion-tab input {
+    display: none;
+}
+
+.accordion-tab>.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.5s;
+    background: white;
+    border-radius: 0 0 8px 8px;
+    position: relative;
+    top: -10px;
+    z-index: -1;
+    border: 1px solid rgba(128, 128, 128, 0.204);
+}
+
+.accordion-content p {
+    padding: 20px;
+}
+
+.accordion-tab input:checked~.accordion-content {
+    max-height: 100vh;
+    box-shadow: 5px 5px 10px rgb(184, 183, 183);
+}
+
+#projects {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+@media only screen and (max-width: 555px) {
+    #projects {
+        flex-direction: column;
+    }
+}
+
+h2 {
+    text-align: center;
+    padding: 10px;
+}
